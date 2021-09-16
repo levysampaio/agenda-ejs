@@ -9,7 +9,7 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const flash = require('connect-flash')
 const csrf = require('csurf')
-const middleware = require('./src/middlewares/middleware')
+const {checkCsrfError, csrfMiddleware} = require('./src/middlewares/middleware')
 const mongoose = require('mongoose')
 
 mongoose.connect(process.env.CONNECTIONSTRING)
@@ -39,12 +39,13 @@ app.use(sessionOptions)
 
 app.use(flash())
 
-app.use(csrf())
-
 app.use(helmet())
 
+app.use(csrf())
 
-app.use(middleware)
+//Middlewares
+app.use(checkCsrfError)
+app.use(csrfMiddleware)
 
 app.use(routes)
 
