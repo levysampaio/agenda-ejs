@@ -1,6 +1,5 @@
-<%- include('head') %>
-<%- include('navbar') %>
-
+<%- include('./includes/head') %>
+<%- include('./includes/navbar') %>
 <div class="container">
   <div class="row">
     <div class="col-lg-2"></div>
@@ -8,28 +7,26 @@
     <div class="col-lg-8 my-5">   
       <h1 class="text-center">Registre-se</h1>
       <p class="text-center lead">Crei seu login de acesso:</p>   
+      <%- include('./includes/messages') %> 
 
-      <form action="/" method="POST">
+      <form action="/register/register" method="POST">
         <input type="hidden" name= "_csrf" value= <%= csrfToken %>>
         <div class="mb-3">
           <label class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+          <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
           <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password">
-        </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          <input type="password" class="form-control" name="password">
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
       </form>
+      
     </div>
 
     <div class="col-lg-2"></div>
   </div>
 </div>
 
-<%- include('footer') %>
+<%- include('./includes/footer') %>

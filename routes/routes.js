@@ -1,11 +1,12 @@
 const express = require('express');
 const route = express.Router();
-const home = require('../src/controllers/home')
+const login = require('../src/controllers/loginController')
 
 
-route.get('/login', home.login)
-route.get('/', home.inicio)
-route.get('/register', home.register)
+//route.get('/login', home.login)
+//route.get('/', login.register)
+route.get('/register/index', login.index)
+route.post('/register/register', login.register)
 
 
 
