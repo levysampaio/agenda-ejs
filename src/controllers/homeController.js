@@ -1,4 +1,4 @@
 exports.index = (req,res,next) => {
-    res.render('login')
+    res.render('index')
     next()
 }
