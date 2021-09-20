@@ -1,9 +1,5 @@
 const User = require('../models/registerModel')
-/*
-exports.inicio = (req,res) =>{
-   res.render('index')
-}
-*/
+
 exports.index = (req,res,next) => {
     res.render('register')
     next()

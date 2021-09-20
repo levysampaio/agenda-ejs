@@ -3,11 +3,12 @@ const validator = require('validator')
 const bcryptjs = require('bcryptjs')
 
 const userSchema = new mongoose.Schema({
-    email: {type: String, required: true},
-    password: {type: String, required: true}
-})
+    email: { type: String, required: true },
+    password: { type: String, required: true }
+  });
+  
+const userModel = mongoose.model('User', userSchema);
 
-const userModel = mongoose.model('user', userSchema)
 
 class User{
     constructor(body){
