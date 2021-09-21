@@ -45,7 +45,9 @@ app.use(csrf())
 
 //Middlewares
 app.use(checkCsrfError)
+
 app.use(csrfMiddleware)
+
 app.use(middlewareGlobal)
 
 app.use(routes)
