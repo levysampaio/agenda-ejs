@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const userModel = require('./schemaModel')
 const bcryptjs = require('bcryptjs')
 
 class Login{
@@ -9,11 +9,15 @@ class Login{
     }
 
     async valida(){
+        this.cleanUp()
         const email = await userModel.findOne({email: this.body.email})
+        const password = await userModel.findOne({password: this.body.password}).where({email: email})
+        console.log(this.body.password)
         if(!email){
             this.errors.push('Usuário não existe.')
         } 
-        if(!bcryptjs.compareSync(this.body.password, this.user.password)){
+
+        if(!bcryptjs.compareSync('ersdfsdfsf', password)){
             this.errors.push('Senha invalida.')
         }
     }
